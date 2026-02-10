@@ -1,0 +1,17 @@
+body {
+  font-family: Arial;
+  text-align: center;
+}
+
+.product {
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 200px;
+  margin: auto;
+}
+button {
+  padding: 8px;
+  background: green;
+  color: white;
+  border: none;
+}
