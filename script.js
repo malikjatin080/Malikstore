@@ -1,9 +1,13 @@
-let count = 0;
+let cart = [];
 let total = 0;
 
-function addToCart(price) {
-  count++;
+function addToCart(name, price) {
+  cart.push(name);
   total += price;
-  document.getElementById("cart").innerText =
-    `Cart: ${count} items | Total ₹${total}`;
+
+  document.getElementById("cart-items").innerText =
+    "Items: " + cart.join(", ");
+
+  document.getElementById("cart-total").innerText =
+    "Total: ₹" + total;
 }
