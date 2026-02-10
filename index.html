@@ -1,20 +1,81 @@
-<div class="product">
-  <img src="./images/tshirt.jpg" alt="T-Shirt">
-  <h3>T-Shirt</h3>
-  <p class="price">₹499</p>
-  <button onclick="addToCart(499)">Add to Cart</button>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Malik Store | Online Shopping</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
 
-<div class="product">
-  <img src="./images/jeans.jpg" alt="Jeans">
-  <h3>Jeans</h3>
-  <p class="price">₹999</p>
-  <button onclick="addToCart(999)">Add to Cart</button>
-</div>
+<!-- NAVBAR -->
+<header class="navbar">
+  <h1>🛒 Malik Store</h1>
+  <nav>
+    <a href="#products">Products</a>
+    <a href="checkout.html">Checkout</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-<div class="product">
-  <img src="./images/shoes.jpg" alt="Shoes">
-  <h3>Shoes</h3>
-  <p class="price">₹1499</p>
-  <button onclick="addToCart(1499)">Add to Cart</button>
-</div>
+<!-- HERO SECTION -->
+<section class="hero">
+  <h2>Best Quality Fashion Products</h2>
+  <p>Affordable • Stylish • Trusted</p>
+  <a href="#products" class="hero-btn">Shop Now</a>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="products-section">
+  <h2>Our Products</h2>
+
+  <div class="products">
+
+    <div class="product">
+      <img src="./images/tshirt.jpg" alt="T-Shirt">
+      <h3>T-Shirt</h3>
+      <p class="price">₹499</p>
+      <button onclick="addToCart('T-Shirt',499)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="./images/jeans.jpg" alt="Jeans">
+      <h3>Jeans</h3>
+      <p class="price">₹999</p>
+      <button onclick="addToCart('Jeans',999)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="./images/shoes.jpg" alt="Shoes">
+      <h3>Shoes</h3>
+      <p class="price">₹1499</p>
+      <button onclick="addToCart('Shoes',1499)">Add to Cart</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- CART SUMMARY -->
+<section class="cart">
+  <h2>Cart Summary</h2>
+  <p id="cart-items">No items added</p>
+  <p id="cart-total">Total: ₹0</p>
+  <a href="checkout.html" class="buy-btn">Buy Now</a>
+</section>
+
+<!-- WHATSAPP BUTTON -->
+<a class="whatsapp"
+   href="https://wa.me/91XXXXXXXXXX?text=Hello%20I%20want%20to%20order%20from%20Malik%20Store"
+   target="_blank">
+   WhatsApp Order
+</a>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <p>© 2025 Malik Store</p>
+  <p>Contact: +919306116203</p>
+</footer>
+
+<script src="./script.js"></script>
+</body>
+</html>
