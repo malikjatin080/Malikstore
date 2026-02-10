@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Checkout</title>
+  <title>Checkout | Malik Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="text-align:center; font-family:Arial">
+<body style="font-family:Arial;text-align:center;background:#f4f6f8;padding:20px">
 
 <h2>Checkout</h2>
-<p>Payment via UPI / QR</p>
 
+<p>Fill details & pay via UPI</p>
+
+<form>
+  <input type="text" placeholder="Your Name" required><br><br>
+  <input type="text" placeholder="Address" required><br><br>
+  <input type="tel" placeholder="Mobile Number" required><br><br>
+</form>
+
+<h3>UPI Payment</h3>
 <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=yourupi@upi&pn=MalikStore">
 
-<p>UPI ID: jatinmalik@ptyes</p>
+<p>UPI ID: jatinmalik@ptyes/p>
 
 <a href="index.html">⬅ Back to Store</a>
 
