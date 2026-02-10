@@ -2,123 +2,251 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Malik Store | Online Shopping</title>
+  <title>Malik Store | Premium Online Shop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+    body{background:#f4f6f8}
+
+    /* NAVBAR */
+    header{
+      background:#111;color:#fff;
+      display:flex;justify-content:space-between;
+      align-items:center;padding:15px 20px;
+    }
+    header h1{font-size:20px}
+    header nav a{
+      color:#fff;text-decoration:none;
+      margin-left:15px;font-size:14px;
+    }
+
+    /* HERO */
+    .hero{
+      background:linear-gradient(120deg,#1d3557,#457b9d);
+      color:#fff;text-align:center;
+      padding:60px 20px;
+    }
+    .hero h2{font-size:28px;margin-bottom:10px}
+    .hero p{opacity:.9}
+    .hero button{
+      margin-top:15px;padding:12px 25px;
+      background:#2ecc71;border:none;
+      color:#fff;border-radius:25px;
+      cursor:pointer;font-size:16px;
+    }
+
+    /* PRODUCTS */
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:20px;padding:30px;
+    }
+    .product{
+      background:#fff;border-radius:12px;
+      padding:15px;text-align:center;
+      box-shadow:0 10px 25px rgba(0,0,0,.1);
+      transition:.3s;
+    }
+    .product:hover{transform:translateY(-6px)}
+    .product img{
+      width:100%;height:180px;
+      object-fit:cover;border-radius:10px;
+    }
+    .price{color:#e63946;font-weight:bold;margin:8px 0}
+    .rating{color:gold;font-size:18px;margin:5px 0}
+    .product button{
+      width:100%;margin-top:8px;
+      padding:10px;border:none;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    .cart-btn{background:#27ae60;color:#fff}
+    .wish-btn{background:#f1f1f1}
+
+    /* CART */
+    .cart-box{
+      background:#fff;margin:20px;
+      padding:20px;border-radius:12px;
+    }
+
+    /* LOGIN / SIGNUP MODAL */
+    .modal{
+      position:fixed;top:0;left:0;
+      width:100%;height:100%;
+      background:rgba(0,0,0,.6);
+      display:none;align-items:center;
+      justify-content:center;
+    }
+    .modal-box{
+      background:#fff;padding:25px;
+      width:300px;border-radius:12px;
+      text-align:center;
+    }
+    .modal-box input{
+      width:100%;padding:10px;
+      margin:8px 0;border-radius:6px;
+      border:1px solid #ccc;
+    }
+    .modal-box button{
+      width:100%;padding:10px;
+      border:none;border-radius:8px;
+      background:#1d3557;color:#fff;
+      cursor:pointer;margin-top:10px;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#111;color:#fff;
+      text-align:center;padding:15px;
+      margin-top:40px;font-size:14px;
+    }
+
+    /* WHATSAPP */
+    .whatsapp{
+      position:fixed;bottom:20px;right:20px;
+      background:#25D366;color:#fff;
+      padding:14px 18px;border-radius:50px;
+      text-decoration:none;font-weight:bold;
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
+<header>
   <h1>🛒 Malik Store</h1>
   <nav>
-    <a href="#products">Products</a>
-    <a href="checkout.html">Checkout</a>
-    <a href="#contact">Contact</a>
+    <a href="#" onclick="openLogin()">Login</a>
+    <a href="#" onclick="openSignup()">Signup</a>
+    <a href="#cart">Cart</a>
   </nav>
 </header>
 
-<!-- HERO SECTION -->
-<section class="hero premium-hero">
-  <h2>Malik Store</h2>
-  <p>Premium Fashion • Trusted Quality</p>
-  <a href="#products" class="hero-btn">Shop Now</a>
+<section class="hero">
+  <h2>Premium Fashion Store</h2>
+  <p>Trusted • Stylish • Affordable</p>
+  <button onclick="scrollToProducts()">Shop Now</button>
 </section>
 
 <!-- PRODUCTS -->
-<section id="products" class="products-section">
-  <h2>Our Products</h2>
+<section id="products" class="products">
+  <div class="product">
+    <img src="./images/tshirt.jpg">
+    <h3>T-Shirt</h3>
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+    <div class="price">₹499</div>
+    <button class="cart-btn" onclick="addToCart('T-Shirt',499)">Add to Cart</button>
+    <button class="wish-btn" onclick="addToWishlist('T-Shirt')">❤️ Wishlist</button>
+  </div>
 
-  <div class="products">
+  <div class="product">
+    <img src="./images/jeans.jpg">
+    <h3>Jeans</h3>
+    <div class="rating">⭐⭐⭐⭐☆</div>
+    <div class="price">₹999</div>
+    <button class="cart-btn" onclick="addToCart('Jeans',999)">Add to Cart</button>
+    <button class="wish-btn" onclick="addToWishlist('Jeans')">❤️ Wishlist</button>
+  </div>
 
-    <div class="product">
-      <img src="./images/tshirt.jpg" alt="T-Shirt">
-      <h3>T-Shirt</h3>
-      <p class="price">₹499</p>
-      <button onclick="addToCart('T-Shirt',499)">Add to Cart</button>
-    </div>
-    <div class="rating" data-product="T-Shirt">
-  ⭐⭐⭐⭐⭐
-</div>
-<button onclick="addToWishlist('T-Shirt')">❤️ Wishlist</button>
-    
-    <div class="product">
-      <img src="./images/jeans.jpg" alt="Jeans">
-      <h3>Jeans</h3>
-      <p class="price">₹999</p>
-      <button onclick="addToCart('Jeans',999)">Add to Cart</button>
-    </div>
-
-    <div class="product">
-      <img src="./images/shoes.jpg" alt="Shoes">
-      <h3>Shoes</h3>
-      <p class="price">₹1499</p>
-      <button onclick="addToCart('Shoes',1499)">Add to Cart</button>
-    </div>
-
+  <div class="product">
+    <img src="./images/shoes.jpg">
+    <h3>Shoes</h3>
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+    <div class="price">₹1499</div>
+    <button class="cart-btn" onclick="addToCart('Shoes',1499)">Add to Cart</button>
+    <button class="wish-btn" onclick="addToWishlist('Shoes')">❤️ Wishlist</button>
   </div>
 </section>
 
-<!-- CART SUMMARY -->
-<section class="cart">
-  <h2>Cart Summary</h2>
-  <p id="cart-items">No items added</p>
-  <p id="cart-total">Total: ₹0</p>
-  <a href="checkout.html" class="buy-btn">Buy Now</a>
-</section>
-  <h2>My Orders</h2>
-<ul id="orderList"></ul>
+<!-- CART -->
+<div id="cart" class="cart-box">
+  <h3>Cart</h3>
+  <p id="cartItems">No items</p>
+  <p id="cartTotal">Total: ₹0</p>
+  <a href="checkout.html">Proceed to Checkout</a><br><br>
+  <a href="https://rzp.io/i/XXXXXXXX" target="_blank">Pay with Razorpay</a>
+</div>
 
-<script>
-let orders = JSON.parse(localStorage.getItem("orders")) || [];
-orderList.innerHTML = orders.map(o =>
-  `<li>${o.item} - ₹${o.price} <br>${o.date}</li>`
-).join("");
-</script>
+<!-- LOGIN MODAL -->
+<div class="modal" id="loginModal">
+  <div class="modal-box">
+    <h3>Login</h3>
+    <input id="loginEmail" placeholder="Email">
+    <input id="loginPass" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p onclick="closeModals()" style="margin-top:10px;cursor:pointer">Close</p>
+  </div>
+</div>
 
-<!-- WHATSAPP BUTTON -->
-<a class="whatsapp"
-   href="https://wa.me/919306116203?text=Hello%20I%20want%20to%20order%20from%20Malik%20Store"
-   target="_blank">
-   WhatsApp Order
+<!-- SIGNUP MODAL -->
+<div class="modal" id="signupModal">
+  <div class="modal-box">
+    <h3>Signup</h3>
+    <input id="signupEmail" placeholder="Email">
+    <input id="signupPass" type="password" placeholder="Password">
+    <button onclick="signup()">Create Account</button>
+    <p onclick="closeModals()" style="margin-top:10px;cursor:pointer">Close</p>
+  </div>
+</div>
+
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">
+  WhatsApp Order
 </a>
-  <h2>Signup</h2>
-<input id="su_email" placeholder="Email">
-<input id="su_pass" type="password" placeholder="Password">
-<button onclick="signup()">Signup</button>
-<h2>Login</h2>
-<input id="li_email" placeholder="Email">
-<input id="li_pass" type="password">
-<button onclick="login()">Login</button>
 
-<script>
-function login(){
-  let u = JSON.parse(localStorage.getItem("user"));
-  if(u && u.email===li_email.value && u.pass===li_pass.value){
-    alert("Login successful");
-    window.location="index.html";
-  } else {
-    alert("Invalid login");
-  }
-}
-</script>
-  
-<script>
-function signup(){
-  localStorage.setItem("user", JSON.stringify({
-    email: su_email.value,
-    pass: su_pass.value
-  }));
-  alert("Signup successful");
-}
-</script>
-
-<!-- FOOTER -->
-<footer id="contact">
+<footer>
   <p>© 2025 Malik Store</p>
-  <p>Contact: +919306116203</p>
+  <p>✔ Secure ✔ COD ✔ Easy Return</p>
 </footer>
 
-<script src="./script.js"></script>
+<script>
+  let cart=[], total=0;
+  let wishlist=JSON.parse(localStorage.getItem("wishlist"))||[];
+
+  function addToCart(name,price){
+    cart.push(name); total+=price;
+    document.getElementById("cartItems").innerText=cart.join(", ");
+    document.getElementById("cartTotal").innerText="Total: ₹"+total;
+  }
+
+  function addToWishlist(item){
+    if(!wishlist.includes(item)){
+      wishlist.push(item);
+      localStorage.setItem("wishlist",JSON.stringify(wishlist));
+      alert(item+" added to wishlist ❤️");
+    }
+  }
+
+  function openLogin(){loginModal.style.display="flex"}
+  function openSignup(){signupModal.style.display="flex"}
+  function closeModals(){
+    loginModal.style.display="none";
+    signupModal.style.display="none";
+  }
+
+  function signup(){
+    localStorage.setItem("user",JSON.stringify({
+      email:signupEmail.value,
+      pass:signupPass.value
+    }));
+    alert("Signup successful");
+    closeModals();
+  }
+
+  function login(){
+    let u=JSON.parse(localStorage.getItem("user"));
+    if(u && u.email===loginEmail.value && u.pass===loginPass.value){
+      alert("Login successful");
+      closeModals();
+    }else{
+      alert("Invalid login");
+    }
+  }
+
+  function scrollToProducts(){
+    document.getElementById("products").scrollIntoView({behavior:"smooth"});
+  }
+</script>
+
 </body>
 </html>
