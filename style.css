@@ -127,3 +127,25 @@ footer {
   padding: 15px;
   margin-top: 40px;
 }
+/* PREMIUM POLISH */
+.product {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.product img {
+  transition: transform 0.3s ease;
+}
+
+.product img:hover {
+  transform: scale(1.08);
+}
+
+button {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
