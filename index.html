@@ -1,20 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Store</title>
+  <title>Malik Store</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>🛒 My Store</h1>
-
-<div class="product">
-  <h2>T-Shirt</h2>
-  <p>Price: ₹499</p>
-  <button onclick="addToCart()">Add to Cart</button>
+<!-- NAVBAR -->
+<div class="navbar">
+  <h2>🛒 Malik Store</h2>
 </div>
 
-<p id="cart">Cart: 0 items</p>
+<div class="products">
+
+  <div class="product">
+    <img src="images/tshirt.jpg">
+    <h3>T-Shirt</h3>
+    <p>₹499</p>
+    <button onclick="addToCart(499)">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="images/jeans.jpg">
+    <h3>Jeans</h3>
+    <p>₹999</p>
+    <button onclick="addToCart(999)">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="images/shoes.jpg">
+    <h3>Shoes</h3>
+    <p>₹1499</p>
+    <button onclick="addToCart(1499)">Add to Cart</button>
+  </div>
+
+</div>
+
+<p id="cart">Cart: 0 items | Total ₹0</p>
+
+<!-- BUY NOW -->
+<a href="checkout.html" class="buy">Buy Now</a>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/9306116203" class="whatsapp">WhatsApp Order</a>
+
+<!-- FOOTER -->
+<footer>© 2025 Malik Store</footer>
 
 <script src="script.js"></script>
 </body>
