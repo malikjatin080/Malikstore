@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Cart</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Your Cart - MalikStore</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Your Cart</h2>
-<div id="cartItems"></div>
-<h3 id="totalPrice"></h3>
+<div class="cart-container">
+    <h2>🛒 Shopping Cart</h2>
+    <div id="cartItems"></div>
+    <div class="cart-summary">
+        <h3 id="totalPrice"></h3>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+</div>
 
-<script src="js/app.js"></script>
 <script>
-let cartData = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let cartDiv = document.getElementById("cartItems");
 let total = 0;
 
-cartData.forEach(item => {
+cart.forEach((item, index) => {
     total += item.price;
     cartDiv.innerHTML += `
-        <div>
-            <img src="${item.image}" width="80"/>
-            <p>${item.name}</p>
-            <p>₹${item.price}</p>
+        <div class="cart-item">
+            <img src="${item.image}" />
+            <div class="cart-details">
+                <h4>${item.name}</h4>
+                <p>₹${item.price}</p>
+                <button onclick="removeItem(${index})">Remove</button>
+            </div>
         </div>
-        <hr/>
     `;
 });
 
 document.getElementById("totalPrice").innerText = "Total: ₹" + total;
+
+function removeItem(index){
+    cart.splice(index,1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    location.reload();
+}
 </script>
 
 </body>
