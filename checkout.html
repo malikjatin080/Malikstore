@@ -2,26 +2,37 @@
 <html>
 <head>
   <title>Checkout | Malik Store</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body style="font-family:Arial;text-align:center;background:#f4f6f8;padding:20px">
+<body>
 
-<h2>Checkout</h2>
+<header>
+  <h1>Checkout</h1>
+</header>
 
-<p>Fill details & pay via UPI</p>
+<div class="cart-box">
+  <p id="checkoutItems"></p>
+  <p id="checkoutTotal"></p>
 
-<form>
-  <input type="text" placeholder="Your Name" required><br><br>
-  <input type="text" placeholder="Address" required><br><br>
-  <input type="tel" placeholder="Mobile Number" required><br><br>
-</form>
+  <button onclick="placeOrder()">📦 Place Order</button>
 
-<h3>UPI Payment</h3>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=yourupi@upi&pn=MalikStore">
+  <a class="checkout-btn"
+     href="https://rzp.io/i/XXXXXX"
+     target="_blank">
+     💳 Pay with Razorpay
+  </a>
 
-<p>UPI ID: jatinmalik@ptyes/p>
+  <button onclick="orderOnWhatsAppCheckout()">📲 WhatsApp Order</button>
+</div>
 
-<a href="index.html">⬅ Back to Store</a>
-
+<script src="script.js"></script>
+<script>
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let total = cart.reduce((s,i)=>s+i.price,0);
+  document.getElementById("checkoutItems").innerText =
+    cart.map(i=>i.name).join(", ");
+  document.getElementById("checkoutTotal").innerText =
+    "Total ₹" + total;
+</script>
 </body>
 </html>
