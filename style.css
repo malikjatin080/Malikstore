@@ -242,3 +242,21 @@ section {
     display: block;
     clear: both;
 }
+/* ===== MOBILE RESPONSIVE FIX ===== */
+@media (max-width: 768px) {
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .why-section {
+    margin-top: 30px;
+    padding: 20px;
+  }
+
+  .main-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
