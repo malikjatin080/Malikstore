@@ -1,55 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Malik Store</title>
+<title>MalikStore</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="navbar">
-  <div class="logo">🛍 MalikStore</div>
-
-  <div class="search-box">
-    <input type="text" placeholder="Search products...">
-  </div>
-
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="login.html">Login</a>
-    <a href="signup.html">Signup</a>
-    <a href="cart.html" class="cart-link">
-      🛒 Cart (<span id="cart-count">0</span>)
-    </a>
-  </div>
+    <div class="logo">🛍 MalikStore</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
 </header>
 
 <section class="hero">
-  <h1>India’s Smart Fashion Store</h1>
-  <p>Quality products at best prices</p>
+    <h1>India’s Smart Fashion Store</h1>
+    <p>Premium Quality at Best Price</p>
 </section>
 
 <section class="products">
 
-  <div class="product">
-    <img src="images/IMG_9978.jpeg">
-    <h3>Printed T-Shirt</h3>
-    <p class="price">₹499</p>
-    <button onclick="addToCart('Printed T-Shirt',499)">Add to Cart</button>
-  </div>
+    <div class="product">
+        <img src="images/tshirt.jpg" alt="Tshirt">
+        <h2>Printed T-Shirt</h2>
+        <p class="price">₹499</p>
+        <button onclick="addToCart('Printed T-Shirt', 499)">Add to Cart</button>
+    </div>
 
-  <div class="product">
-    <img src="images/IMG_9980.jpeg">
-    <h3>Blue Jeans</h3>
-    <p class="price">₹999</p>
-    <button onclick="addToCart('Blue Jeans',999)">Add to Cart</button>
-  </div>
+    <div class="product">
+        <img src="images/jeans.jpg" alt="Jeans">
+        <h2>Blue Jeans</h2>
+        <p class="price">₹999</p>
+        <button onclick="addToCart('Blue Jeans', 999)">Add to Cart</button>
+    </div>
 
 </section>
 
 <footer>
-  © 2026 Malik Store. All Rights Reserved.
+    © 2026 MalikStore. All Rights Reserved.
 </footer>
 
 <script src="script.js"></script>
