@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Payment - MalikStore</title>
-  <link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment</title>
+<style>
+body{font-family:Arial;padding:15px;}
+button{width:100%;padding:12px;margin-top:10px;background:black;color:white;border:none;}
+</style>
 </head>
 <body>
 
-<div class="checkout-container">
-  <h2>Select Payment Method</h2>
+<h2>Payment Page</h2>
 
-  <div class="payment-box">
+<h3 id="amount"></h3>
 
-    <h3>UPI Payment</h3>
-    <p>UPI ID: <b>jatinmalik@ptyes</b></p>
-
-    <button onclick="payNow()">Pay Now</button>
-
-  </div>
-</div>
+<button onclick="payNow()">Pay Now</button>
 
 <script>
+let amount = localStorage.getItem("finalPrice");
+document.getElementById("amount").innerHTML="Total: ₹"+amount;
+
 function payNow(){
-  alert("Payment Successful ✅");
-  window.location.href = "index.html";
+alert("Payment Successful! Order Confirmed");
+localStorage.clear();
+window.location.href="index.html";
 }
 </script>
 
