@@ -1,11 +1,36 @@
-let cart = [];
+function loadCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartItemsDiv = document.getElementById("cartItems");
+    let subtotal = 0;
 
-function addToCart(name, price) {
-  cart.push({ name, price });
-  alert(name + " added to cart");
-}
-addToCart('Printed T-Shirt', 499, 'images/tshirt1.jpg')
+    if (!cartItemsDiv) return;
 
-function placeOrder() {
-  alert("Order placed (demo)");
+    cartItemsDiv.innerHTML = "";
+
+    cart.forEach((item, index) => {
+        subtotal += item.price;
+
+        cartItemsDiv.innerHTML += `
+            <div class="cart-card">
+                <img src="${item.image}" alt="${item.name}">
+                <div>
+                    <h4>${item.name}</h4>
+                    <p>₹${item.price}</p>
+                    <button onclick="removeItem(${index})">Remove</button>
+                </div>
+            </div>
+        `;
+    });
+
+    document.getElementById("subtotal").innerText = subtotal;
+    document.getElementById("total").innerText = subtotal + 79;
 }
+
+function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+}
+
+loadCart();
