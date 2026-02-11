@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Checkout</title>
-  <link rel="stylesheet" href="css/style.css">
+<title>Checkout | Malik Store</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Your Order</h2>
-<div id="checkoutItems"></div>
+<header class="navbar">
+  <div class="logo">🛍 MalikStore</div>
+</header>
 
-<button onclick="placeOrder()">Place Order</button>
+<div class="checkout-box">
+  <h2>Checkout</h2>
+  <p id="cartItems">No items</p>
+  <p id="cartTotal">Total ₹0</p>
+  <button onclick="placeOrder()">Place Order</button>
+</div>
 
-<script src="js/app.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
