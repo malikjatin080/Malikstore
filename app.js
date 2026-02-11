@@ -1,27 +1,44 @@
-// CART STORAGE
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// UPDATE CART COUNT
-function updateCartCount() {
-    document.getElementById("cartCount").innerText = cart.length;
+function addToCart(name, price){
+    let item = cart.find(p => p.name === name);
+
+    if(item){
+        item.quantity += 1;
+    } else {
+        cart.push({name, price, quantity:1});
+    }
+
+    saveCart();
 }
 
-// ADD TO CART FUNCTION
-function addToCart(name, price, image) {
-    const product = {
-        id: Date.now(),
-        name: name,
-        price: price,
-        image: image
-    };
+function removeItem(name){
+    cart = cart.filter(item => item.name !== name);
+    saveCart();
+    location.reload();
+}
 
-    cart.push(product);
+function changeQty(name, amount){
+    let item = cart.find(p => p.name === name);
+    item.quantity += amount;
+
+    if(item.quantity <= 0){
+        removeItem(name);
+    }
+
+    saveCart();
+    location.reload();
+}
+
+function saveCart(){
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartCount();
-    alert(name + " added to cart!");
 }
 
-// LOAD CART ON PAGE LOAD
-document.addEventListener("DOMContentLoaded", function () {
-    updateCartCount();
-});
+function updateCartCount(){
+    let count = cart.reduce((sum,item)=> sum + item.quantity,0);
+    let el = document.getElementById("cart-count");
+    if(el) el.innerText = count;
+}
+
+updateCartCount();
