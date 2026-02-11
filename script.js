@@ -1,12 +1,36 @@
-function addToCart(name, price, image) {
+function loadCart() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartItemsDiv = document.getElementById("cartItems");
+    let subtotal = 0;
 
-    cart.push({
-        name: name,
-        price: price,
-        image: image
+    if (!cartItemsDiv) return;
+
+    cartItemsDiv.innerHTML = "";
+
+    cart.forEach((item, index) => {
+        subtotal += item.price;
+
+        cartItemsDiv.innerHTML += `
+            <div class="cart-card">
+                <img src="${item.image}" alt="${item.name}">
+                <div>
+                    <h4>${item.name}</h4>
+                    <p>₹${item.price}</p>
+                    <button onclick="removeItem(${index})">Remove</button>
+                </div>
+            </div>
+        `;
     });
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Added to Cart");
+    document.getElementById("subtotal").innerText = subtotal;
+    document.getElementById("total").innerText = subtotal + 79;
 }
+
+function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    loadCart();
+}
+
+loadCart();
