@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cart</title>
-<link rel="stylesheet" href="style.css">
+    <title>Cart - Malik Store</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="navbar">
-    <div class="logo">🛍 MalikStore</div>
-    <a href="index.html">Home</a>
+<header>
+    <h1>Your Cart</h1>
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
 </header>
 
-<div class="cart-container">
-<div class="cart-items" id="cart-items"></div>
+<section style="padding:20px;">
+    <ul id="cart-items"></ul>
+    <h3 id="total"></h3>
+    <button onclick="checkout()">Checkout</button>
+</section>
 
-<div class="summary">
-<h3>Order Summary</h3>
-<p>Subtotal: ₹<span id="subtotal">0</span></p>
-<p>Delivery: ₹79</p>
-<h2>Total: ₹<span id="total">0</span></h2>
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let list = document.getElementById("cart-items");
+let total = 0;
 
-<select id="payment-method">
-<option value="upi">UPI (jatinmalik@ptyes)</option>
-<option value="razorpay">Razorpay</option>
-</select>
+cart.forEach(item => {
+    let li = document.createElement("li");
+    li.innerText = item.name + " - ₹" + item.price;
+    list.appendChild(li);
+    total += item.price;
+});
 
-<button onclick="checkout()">Proceed to Payment</button>
-</div>
+document.getElementById("total").innerText = "Total: ₹" + total;
 
-</div>
-    <script>
-if(localStorage.getItem("isLoggedIn") !== "true"){
-   window.location.href = "login.html";
+function checkout(){
+    localStorage.removeItem("cart");
+    alert("Order Placed Successfully!");
+    window.location.href="index.html";
 }
 </script>
 
-<script src="script.js"></script>
 </body>
 </html>
