@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Checkout | Malik Store</title>
-<link rel="stylesheet" href="style.css">
+    <title>Your Cart - MalikStore</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="navbar">
-  <div class="logo">🛍 MalikStore</div>
-</header>
-
-<div class="checkout-box">
-  <h2>Checkout</h2>
-  <p id="cartItems">No items</p>
-  <p id="cartTotal">Total ₹0</p>
-  <button onclick="placeOrder()">Place Order</button>
+<div class="navbar">
+    <div class="logo">🛍 MalikStore</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Signup</a>
+    </div>
 </div>
+
+<div class="container">
+
+    <h2>Your Cart</h2>
+
+    <div class="cart-wrapper">
+
+        <div class="cart-items" id="cartItems">
+            <!-- Items will come from JS -->
+        </div>
+
+        <div class="cart-summary">
+            <h3>Order Summary</h3>
+            <p>Subtotal: ₹<span id="subtotal">0</span></p>
+            <p>Delivery: ₹79</p>
+            <p>Discount: ₹0</p>
+            <hr>
+            <h3>Total: ₹<span id="total">0</span></h3>
+
+            <input type="text" placeholder="Enter Coupon">
+            <button>Apply Coupon</button>
+            <button>Proceed to Checkout</button>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 MalikStore • All Rights Reserved
+</footer>
 
 <script src="script.js"></script>
 </body>
