@@ -25,6 +25,11 @@ function loadCart() {
     document.getElementById("subtotal").innerText = subtotal;
     document.getElementById("total").innerText = subtotal + 79;
 }
+{
+   name: "T-Shirt",
+   price: 499,
+   image: "images/tshirt.jpg"
+}
 
 function removeItem(index) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
