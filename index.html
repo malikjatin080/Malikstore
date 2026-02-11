@@ -1,116 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Malik Store</title>
-<style>
-body{
-margin:0;
-font-family:Arial;
-background:#f2f2f2;
-}
-
-header{
-background:black;
-color:white;
-padding:15px;
-text-align:center;
-font-size:20px;
-}
-
-.container{
-padding:15px;
-}
-
-.product{
-background:white;
-padding:10px;
-margin-bottom:15px;
-border-radius:10px;
-box-shadow:0 0 5px rgba(0,0,0,0.2);
-}
-
-.product img{
-width:100%;
-border-radius:10px;
-}
-
-select, input{
-width:100%;
-padding:10px;
-margin-top:8px;
-border-radius:5px;
-border:1px solid gray;
-}
-
-button{
-width:100%;
-padding:12px;
-margin-top:10px;
-background:black;
-color:white;
-border:none;
-border-radius:5px;
-font-size:16px;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:green;
-color:white;
-padding:15px;
-border-radius:50%;
-font-size:20px;
-text-align:center;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>Malik Store</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>Malik Store</header>
+<header>
+    <h1>Malik Store</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+</header>
 
-<div class="container">
+<section class="products">
 
-<div class="product">
-<img src="https://via.placeholder.com/400x300">
-<h3>Stylish Shoes</h3>
-<p>₹1500</p>
+    <div class="product">
+        <h3>Shoes</h3>
+        <p>₹1999</p>
+        <button onclick="addToCart('Shoes',1999)">Add to Cart</button>
+    </div>
 
-<select id="size">
-<option value="">Select Size</option>
-<option>6</option>
-<option>7</option>
-<option>8</option>
-<option>9</option>
-</select>
+    <div class="product">
+        <h3>Watch</h3>
+        <p>₹2999</p>
+        <button onclick="addToCart('Watch',2999)">Add to Cart</button>
+    </div>
 
-<button onclick="addToCart()">Add to Cart</button>
-</div>
+    <div class="product">
+        <h3>T-Shirt</h3>
+        <p>₹799</p>
+        <button onclick="addToCart('T-Shirt',799)">Add to Cart</button>
+    </div>
 
-</div>
+    <div class="product">
+        <h3>Jeans</h3>
+        <p>₹1499</p>
+        <button onclick="addToCart('Jeans',1499)">Add to Cart</button>
+    </div>
 
-<a class="whatsapp" href="https://wa.me/919306116203" target="_blank">💬</a>
+</section>
 
-<script>
-function addToCart(){
-let size = document.getElementById("size").value;
-
-if(size == ""){
-alert("Please select size");
-return;
-}
-
-localStorage.setItem("product","Stylish Shoes");
-localStorage.setItem("price",1500);
-localStorage.setItem("size",size);
-
-window.location.href="address.html";
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
