@@ -198,7 +198,54 @@ body{
 .cart-summary button:hover{
     background:#0b5ed7;
 }
+header{
+    background: linear-gradient(135deg,#1e3c72,#2a5298);
+    padding:15px 20px;
+    color:white;
+}
 
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    max-width:1200px;
+    margin:auto;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#ffd700;
+}
+
+.search-box{
+    text-align:center;
+    margin-top:10px;
+}
+
+.search-box input{
+    width:90%;
+    max-width:500px;
+    padding:8px 12px;
+    border-radius:20px;
+    border:none;
+    outline:none;
+}
 /* =========================
    LOGIN / SIGNUP
 ========================= */
