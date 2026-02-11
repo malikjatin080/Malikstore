@@ -1,65 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MalikStore</title>
 <link rel="stylesheet" href="style.css">
 </head>
+<body>
+
 <header class="navbar">
-  <div class="nav-container">
-
-    <div class="logo">
-      🛍 MalikStore
+    <div class="logo">🛍 MalikStore</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="orders.html">Orders</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        <a href="login.html" id="loginBtn">Login</a>
     </div>
-
-    <div class="search-box">
-      <input type="text" placeholder="Search products...">
-    </div>
-
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="login.html">Login</a>
-      <a href="signup.html">Signup</a>
-      <a href="checkout.html" class="cart-link">
-        🛒 Cart (<span id="cart-count">0</span>)
-      </a>
-    </nav>
-
-  </div>
 </header>
 
 <section class="hero">
     <h1>India’s Smart Fashion Store</h1>
     <p>Premium Quality at Best Price</p>
 </section>
-<div class="products-container">
 
-  <div class="product-card">
-    <img src="images/tshirt.jpg">
-    <h3>Printed T-Shirt</h3>
-    <p>₹499</p>
-    <button>Add to Cart</button>
-  </div>
+<section class="products">
 
-  <div class="product-card">
-    <img src="images/jeans.jpg">
-    <h3>Blue Jeans</h3>
-    <p>₹999</p>
-    <button>Add to Cart</button>
-    <script src="script.js"></script>
-</body>
-</html>
-  </div>
-
+<div class="card">
+<img src="images/tshirt.jpg">
+<h3>Printed T-Shirt</h3>
+<p>₹499</p>
+<button onclick="addToCart('Printed T-Shirt',499)">Add to Cart</button>
 </div>
 
+<div class="card">
+<img src="images/jeans.jpg">
+<h3>Blue Jeans</h3>
+<p>₹999</p>
+<button onclick="addToCart('Blue Jeans',999)">Add to Cart</button>
+</div>
 
 </section>
-
-<footer>
-    © 2026 MalikStore. All Rights Reserved.
-</footer>
 
 <script src="script.js"></script>
 </body>
