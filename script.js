@@ -1,14 +1,17 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function updateCartCount() {
-    document.getElementById("cart-count").innerText = cart.length;
-}
-
 function addToCart(name, price) {
-    cart.push({ name, price });
+    cart.push({ name: name, price: price });
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartCount();
-    alert(name + " added to cart!");
+    alert("Item added to cart");
+}
+
+function updateCartCount() {
+    let count = document.getElementById("cart-count");
+    if (count) {
+        count.innerText = cart.length;
+    }
 }
 
 updateCartCount();
