@@ -1,43 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cart - Malik Store</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
-    <h1>Your Cart</h1>
-    <nav>
-        <a href="index.html">Home</a>
-    </nav>
-</header>
+<h2 style="padding:20px;">Your Cart</h2>
+<div id="cart-container" style="padding:20px;"></div>
 
-<section style="padding:20px;">
-    <ul id="cart-items"></ul>
-    <h3 id="total"></h3>
-    <button onclick="checkout()">Checkout</button>
-</section>
+<script src="js/app.js"></script>
 
 <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let list = document.getElementById("cart-items");
+let container = document.getElementById("cart-container");
 let total = 0;
 
-cart.forEach(item => {
-    let li = document.createElement("li");
-    li.innerText = item.name + " - ₹" + item.price;
-    list.appendChild(li);
-    total += item.price;
+cart.forEach(item=>{
+    total += item.price * item.quantity;
+
+    container.innerHTML += `
+        <div class="card">
+            <h3>${item.name}</h3>
+            <p>₹${item.price}</p>
+            <p>Qty: ${item.quantity}</p>
+            <button onclick="changeQty('${item.name}',1)">+</button>
+            <button onclick="changeQty('${item.name}',-1)">-</button>
+            <button onclick="removeItem('${item.name}')">Remove</button>
+        </div>
+    `;
 });
 
-document.getElementById("total").innerText = "Total: ₹" + total;
-
-function checkout(){
-    localStorage.removeItem("cart");
-    alert("Order Placed Successfully!");
-    window.location.href="index.html";
-}
+container.innerHTML += `<h2>Total: ₹${total}</h2>`;
 </script>
 
 </body>
