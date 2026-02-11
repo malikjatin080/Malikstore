@@ -11,18 +11,38 @@ body {
 
 /* NAVBAR */
 .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
   background: #2874f0;
   color: white;
-  padding: 14px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.navbar a {
-  color: white;
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.search-box {
+  width: 40%;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+.navbar nav a {
   margin-left: 15px;
+  color: white;
   text-decoration: none;
+  font-weight: 500;
+}
+
+#cartCount {
+  background: orange;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 12px;
 }
 
 .btn-outline {
