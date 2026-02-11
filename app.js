@@ -4,30 +4,13 @@ function addToCart(name, price){
     let item = cart.find(p => p.name === name);
 
     if(item){
-        item.quantity += 1;
+        item.qty++;
     } else {
-        cart.push({name, price, quantity:1});
+        cart.push({name, price, qty:1});
     }
 
     saveCart();
-}
-
-function removeItem(name){
-    cart = cart.filter(item => item.name !== name);
-    saveCart();
-    location.reload();
-}
-
-function changeQty(name, amount){
-    let item = cart.find(p => p.name === name);
-    item.quantity += amount;
-
-    if(item.quantity <= 0){
-        removeItem(name);
-    }
-
-    saveCart();
-    location.reload();
+    alert(name + " added!");
 }
 
 function saveCart(){
@@ -36,9 +19,9 @@ function saveCart(){
 }
 
 function updateCartCount(){
-    let count = cart.reduce((sum,item)=> sum + item.quantity,0);
+    let totalQty = cart.reduce((sum,item)=>sum+item.qty,0);
     let el = document.getElementById("cart-count");
-    if(el) el.innerText = count;
+    if(el) el.innerText = totalQty;
 }
 
 updateCartCount();
