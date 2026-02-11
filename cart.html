@@ -1,87 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Cart - MalikStore</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Your Cart</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h2>🛒 Your Cart</h2>
+<header class="navbar">
+    <div class="logo">🛍 MalikStore</div>
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
+</header>
 
-    <div class="cart-wrapper">
+<h2 style="text-align:center; margin-top:30px;">Your Cart</h2>
 
-        <div class="cart-items" id="cartItems"></div>
-
-        <div class="cart-summary">
-            <h3>Order Summary</h3>
-
-            <p>Subtotal: <span id="subtotal"></span></p>
-            <p>Delivery: ₹79</p>
-            <p class="discount">Discount: <span id="discount">₹0</span></p>
-            <hr>
-            <h3>Total: <span id="total"></span></h3>
-
-            <input type="text" id="coupon" placeholder="Enter Coupon">
-            <button onclick="applyCoupon()">Apply Coupon</button>
-
-            <button class="checkout-btn">Proceed to Checkout</button>
-        </div>
-
-    </div>
-</div>
+<div id="cart-items" style="padding:40px;"></div>
 
 <script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let container = document.getElementById("cart-items");
 
-let cartDiv = document.getElementById("cartItems");
-let subtotal = 0;
-let discount = 0;
-let delivery = 79;
+let total = 0;
 
-cart.forEach((item, index) => {
-    subtotal += item.price;
-
-    cartDiv.innerHTML += `
-        <div class="cart-card">
-            <img src="${item.image}">
-            <div>
-                <h4>${item.name}</h4>
-                <p>₹${item.price}</p>
-                <button onclick="removeItem(${index})">Remove</button>
-            </div>
-        </div>
-    `;
+cart.forEach(item => {
+    let div = document.createElement("div");
+    div.innerHTML = `<p>${item.name} - ₹${item.price}</p>`;
+    container.appendChild(div);
+    total += item.price;
 });
 
-function updateTotals(){
-    document.getElementById("subtotal").innerText = "₹" + subtotal;
-    document.getElementById("discount").innerText = "₹" + discount;
-    document.getElementById("total").innerText = "₹" + (subtotal + delivery - discount);
-}
-
-updateTotals();
-
-function removeItem(index){
-    cart.splice(index,1);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    location.reload();
-}
-
-function applyCoupon(){
-    let code = document.getElementById("coupon").value;
-
-    if(code === "POOJA"){
-        discount = Math.floor(subtotal * 0.10);
-        alert("Coupon Applied!");
-    } else {
-        alert("Invalid Coupon");
-        discount = 800;
-    }
-
-    updateTotals();
-}
+container.innerHTML += "<h3>Total: ₹" + total + "</h3>";
 </script>
 
 </body>
