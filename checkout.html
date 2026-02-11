@@ -1,38 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Checkout | Malik Store</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
-  <h1>Checkout</h1>
-</header>
+<h2>Your Order</h2>
+<div id="checkoutItems"></div>
 
-<div class="cart-box">
-  <p id="checkoutItems"></p>
-  <p id="checkoutTotal"></p>
+<button onclick="placeOrder()">Place Order</button>
 
-  <button onclick="placeOrder()">📦 Place Order</button>
-
-  <a class="checkout-btn"
-     href="https://rzp.io/i/XXXXXX"
-     target="_blank">
-     💳 Pay with Razorpay
-  </a>
-
-  <button onclick="orderOnWhatsAppCheckout()">📲 WhatsApp Order</button>
-</div>
-
-<script src="script.js"></script>
-<script>
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let total = cart.reduce((s,i)=>s+i.price,0);
-  document.getElementById("checkoutItems").innerText =
-    cart.map(i=>i.name).join(", ");
-  document.getElementById("checkoutTotal").innerText =
-    "Total ₹" + total;
-</script>
+<script src="js/app.js"></script>
 </body>
 </html>
