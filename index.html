@@ -1,48 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Malik Store</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malik Store</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
-    <h1>Malik Store</h1>
+<header class="navbar">
+    <h2>Malik Store</h2>
     <nav>
         <a href="index.html">Home</a>
         <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        <a href="login.html">Login</a>
     </nav>
 </header>
 
 <section class="products">
 
-    <div class="product">
-        <h3>Shoes</h3>
-        <p>₹1999</p>
-        <button onclick="addToCart('Shoes',1999)">Add to Cart</button>
-    </div>
+<div class="card">
+    <img src="images/shoes.jpg">
+    <h3>Shoes</h3>
+    <p>₹1999</p>
+    <button onclick="addToCart('Shoes',1999)">Add to Cart</button>
+</div>
 
-    <div class="product">
-        <h3>Watch</h3>
-        <p>₹2999</p>
-        <button onclick="addToCart('Watch',2999)">Add to Cart</button>
-    </div>
+<div class="card">
+    <img src="images/watch.jpg">
+    <h3>Watch</h3>
+    <p>₹2999</p>
+    <button onclick="addToCart('Watch',2999)">Add to Cart</button>
+</div>
 
-    <div class="product">
-        <h3>T-Shirt</h3>
-        <p>₹799</p>
-        <button onclick="addToCart('T-Shirt',799)">Add to Cart</button>
-    </div>
+<div class="card">
+    <img src="images/tshirt.jpg">
+    <h3>T-Shirt</h3>
+    <p>₹799</p>
+    <button onclick="addToCart('T-Shirt',799)">Add to Cart</button>
+</div>
 
-    <div class="product">
-        <h3>Jeans</h3>
-        <p>₹1499</p>
-        <button onclick="addToCart('Jeans',1499)">Add to Cart</button>
-    </div>
+<div class="card">
+    <img src="images/jeans.jpg">
+    <h3>Jeans</h3>
+    <p>₹1499</p>
+    <button onclick="addToCart('Jeans',1499)">Add to Cart</button>
+</div>
 
 </section>
 
-<script src="script.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
